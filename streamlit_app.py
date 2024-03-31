@@ -23,8 +23,8 @@ session = cnx.session()
 #get_active_session()
 
 
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
-st.dataframe(data=my_dataframe, use_container_width=True)
+#my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
+#st.dataframe(data=my_dataframe, use_container_width=True)
 # st.stop()
 
 # Convert the Snowpark Datafram to a Pandas Dataframe so we can use the LOC function
@@ -67,5 +67,5 @@ if ingredients_list:
 # New section to display fruityvice nutrition information  
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response)
+st.text(fruityvice_response.json())
   
