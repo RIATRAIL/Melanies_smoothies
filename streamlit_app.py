@@ -39,8 +39,8 @@ ingredients_list =options = st.multiselect(
     )
 
 if ingredients_list: 
-   # st.write('You selected:', options)
-   # st.text(ingredients_list)
+   st.write('You selected:', options)
+   st.text(ingredients_list)
     ingredients_string = ''
 
     for fruit_chosen in ingredients_list:
@@ -64,4 +64,8 @@ if ingredients_list:
             session.sql(my_insert_stmt).collect()
             st.success('Your Smoothie is ordered!', icon="✅")
 
+# New section to display fruityvice nutrition information  
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
   
